@@ -1,0 +1,106 @@
+/* input placeholder */
+::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: #000;
+}
+
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #000;
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #000;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #000;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #000;
+}
+
+::placeholder {
+    /* Most modern browsers support this now. */
+    color: #000;
+}
+
+@font-face {
+    font-family: my-favorit;
+    src: url(../fonts/Merienda/static/Merienda-Regular.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: my-favorit;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    background-color: #d8d8d9;
+}
+
+/* Login page specific styles */
+.login-container {
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    margin: 50px auto;
+}
+
+.login-container img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container .input-group {
+    margin: 10px 0;
+}
+
+.login-container input {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.login-container button {
+    padding: 10px;
+    background-color: #fb7725;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-container button:hover {
+    background-color: o;
+}

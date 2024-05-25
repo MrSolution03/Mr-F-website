@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/fontawesome/css/all.css">
+    <style>
+        .home-page-main{
+            padding-top: 7rem;
+        }
+        .slider {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            border-radius: 20px;
+            padding: 0px 50px;
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slide img {
+            border-radius: 20px;
+            width: 100%;
+            height: 100vh;
+            display: block;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-nav button {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* Product Section */
+        .product-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        .product {
+            display: inline-block;
+            width: 30%;
+            margin: 1%;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .product img {
+            width: 170px;
+            border-radius: 10px;
+        }
+
+        .product h3 {
+            margin-top: 10px;
+            color: #fb7725;
+        }
+
+        /* News Section */
+        .news-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            gap: 20px;
+        }
+
+        .news-image {
+            flex: 2;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .news-content {
+            flex: 2;
+            padding: 20px;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .news-content h2 {
+            color: #fb7725;
+        }
+
+
+        @media only screen and (max-width: 1000px) {
+            .product {
+                width: 47%;
+            }
+
+            .slide img {
+                height: 80vh;
+            }
+
+            .slide {
+                padding: 0px 20px;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .news-section{
+                flex-direction: column;
+            }
+
+            .news-image {
+                width: 500px;
+            }
+
+            
+            .home-page-main{
+                padding-top: 5rem;
+            }
+
+            .slide img {
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <nav>
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="static/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="menu-btn-responsive">
+                <i class="fa-duotone fa-bars"></i>
+            </div>
+            <div class="nav-auth">
+                <a href="product.html" class="menu-page" id="product-page-tbn">menu</a>
+                <a class="call-modal" id="call-modal-tbn"><i class="fa-duotone fa-phone"></i>&nbsp;call us</a>
+                <a href="about.html" class="about-us" id="about-page-tbn"><i
+                        class="fa-light fa-circle-info"></i>&nbsp;about Mr. F</a>
+                <div class="basket">
+                    <i class="fa-duotone fa-basket-shopping"></i>
+                    <span id="basketCount">0</span>
+                </div>
+                <div class="user">
+                    <i class="fa-duotone fa-user"></i>
+                    <div id="userMenu" class="user-menu">
+                        <!-- Display user's name dynamically -->
+                        <span id="userName"></span>
+                        <a href="user_profile.html" id="profileLink">Profile</a>
+                        <button id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+        </div>
+        <div class="responsive-menu" id="responsive-menu_">
+            <i id="close-menu" class="fa-sharp fa-light fa-xmark"></i>
+            <div>
+                <a href="product.html" class="menu-page-res" id="product-page-tbn">menu</a>
+                <a class="call-modal-res" id="call-modal-tbn-res"><i class="fa-duotone fa-phone"></i>&nbsp;call us</a>
+                <a href="about.html" class="about-us-res" id="about-page-tbn"><i class="fa-light fa-circle-info"></i>&nbsp;about Mr.
+                    F</a>
+            </div>
+        </div>
+        <section class="home-page-main">
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide">
+                        <img src="static/images/pic1.jpeg" alt="Slider Image 1">
+                    </div>
+                    <div class="slide">
+                        <img src="static/images/pic2.jpeg" alt="Slider Image 2">
+                    </div>
+                    <div class="slide">
+                        <img src="static/images/pic3.jpeg" alt="Slider Image 3">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="product-section">
+                <h2>Featured Products</h2>
+                <div class="product">
+                    <p class="product-name">Veggie Burger</p>
+                    <img src="static/images/product/burger/burger2.png" alt="Product 1">
+                    <p class="price-container"><span class="price">$5.00</span>&nbsp;&nbsp;<a href="#"
+                        class="order-btn">Order now</a></p>
+                </div>
+                <div class="product">
+                    <p class="product-name">Fried chicken</p>
+                    <img src="static/images/product/chicken/chick3.png" alt="Product 2">
+                    <p class="price-container"><span class="price">$5.00</span>&nbsp;&nbsp;<a href="#"
+                        class="order-btn">Order now</a></p>
+                </div>
+                <div class="product">
+                    <p class="product-name">Jollof rice</p>
+                    <img src="static/images/product/rice/rice2.png" alt="Product 3">
+                    <p class="price-container"><span class="price">$5.00</span>&nbsp;&nbsp;<a href="#"
+                        class="order-btn">Order now</a></p>
+                </div>
+            </div>
+    
+            <div class="news-section">
+                <div class="news-image">
+                    <img src="static/images/news.png" alt="News Image">
+                </div>
+                <div class="news-content">
+                    <h2>Latest News</h2>
+                    <p>Stay updated with our latest news and events. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.</p>
+                </div>
+            </div>
+        </section>
+        
+        
+    
+
+    <div id="basketModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Order Summary</h2>
+            <div id="orderItems">
+                <!-- Order items will be appended here dynamically -->
+            </div>
+            <button id="checkoutBtn">Checkout</button>
+        </div>
+    </div>
+    
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-payment">&times;</span>
+            <h2>Payment Information</h2>
+            <form id="paymentForm">
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" name="cardNumber" required pattern="\d{16}" title="Card number must be 26 digits">
+                <label for="ownerName">Owner Name:</label>
+                <input type="text" id="ownerName" name="ownerName" required>
+                <label for="expiryDate">Expiry Date (MM/YYYY):</label>
+                <input type="text" id="expiryDate" name="expiryDate" required pattern="\d{2}/\d{4}" title="Expiry date must be in MM/YYYY format">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required pattern="\d{3}" title="CVV must be 3 digits">
+                <label for="address">Home Address:</label>
+                <input type="text" id="address" name="address" required>
+                <button type="submit">Pay Now</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="suggestion-container">
+        <button id="showSuggestionFormBtn">Suggestion</button>
+        <div id="suggestionForm" style="display: none;">
+            <form id="suggestionFormContent">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="suggestion">Suggestion:</label>
+                    <textarea id="suggestion" name="suggestion" required></textarea>
+                </div>
+                <button type="submit">Submit Suggestion</button>
+            </form>
+        </div>
+        <div id="thankYouMessage" style="display: none;">
+            <p>Thank you for your suggestion!</p>
+        </div>
+    </div>
+
+    <div id="callModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Call Us</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="zipCode">Zip Code:</label>
+                    <input type="text" id="zipCode" name="zipCode">
+                </div>
+                <button id="searchBtn">Search</button>
+            </div>
+            <div class="form-group">
+                <label for="selectLocation">Select Location:</label>
+                <select id="selectLocation" name="selectLocation">
+                    <option value="Mr.F">Mr.Flefkosa </option>
+                    <option value="Mr">Mr. F girne</option>
+                    <option value="Mr. F magusa">Mr. F magusa</option>
+                    <option value="Mr F gonyeli">Mr F gonyeli</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <p style="margin-bottom:0px; text-align: center;">© 2024 Mr. F</p>
+
+    <script src="static/js/jquery-3.7.1.js"></script>
+    <script src="static/js/add_to_basket.js"></script>
+    <script src="static/js/suggestion.js"></script>
+    <script src="static/js/slider.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Smooth scrolling for anchor links
+            $('a[href^="#"]').on('click', function (event) {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+
+                // Store the hash
+                var hash = this.hash;
+                console.log("Clicked hash:", hash);
+
+                // Animate scroll to anchor ID if hash exists
+                if ($(hash).length) {
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 500, function () {
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } else {
+                    console.log("Target element not found for hash:", hash);
+                }
+            });
+
+            $("#call-modal-tbn").click(function () {
+                // Show the modal
+                $("#callModal").show();
+            });
+
+            $("#call-modal-tbn-res").click(function () {
+                // Show the modal
+                $("#callModal").show();
+            });
+
+            // Close the modal when the close button is clicked
+            $(".close").click(function () {
+                // Hide the modal
+                $("#callModal").hide();
+            });
+
+            // Close the modal when clicked outside the modal
+            $(window).click(function (event) {
+                if ($(event.target).is("#callModal")) {
+                    $("#callModal").hide();
+                }
+            });
+
+            // Prevent clicks inside the modal from closing it
+            $("#callModal").click(function (event) {
+                event.stopPropagation();
+            });
+
+            $('#close-menu').click(function () {
+                $('#responsive-menu_').removeClass('show');
+            });
+
+            $('.menu-btn-responsive').click(function () {
+                $('#responsive-menu_').addClass('show');
+            });
+
+            // Close responsive menu on screens larger than 1000px
+            $(window).resize(function () {
+                if ($(window).width() > 1000) {
+                    $('#responsive-menu_').removeClass('show');
+                }
+            });
+
+        });
+
+
+        function setUserName(name) {
+            $('#userName').text(name);
+        }
+        // Toggle the user menu
+        $(".user").click(function () {
+            $("#userMenu").toggle();
+        });
+
+        // Logout and redirect to the login page
+        $("#logoutBtn").click(function () {
+            // Perform any logout actions here 
+            sessionStorage.removeItem('isLoggedIn');
+            window.location.href = "index.html"; // Redirect to the login page
+        });
+
+        var loggedInUser = sessionStorage.getItem('loggedInUser');
+        if (loggedInUser) {
+            setUserName(loggedInUser);
+        }
+        $('#profileLink').click(function () {
+            // Redirect to user profile page
+            window.location.href = "user_profile.html";
+        });
+        // Close the user menu if clicked outside
+        $(document).mouseup(function (e) {
+            var userMenu = $("#userMenu");
+            if (!userMenu.is(e.target) && userMenu.has(e.target).length === 0) {
+                userMenu.hide();
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
