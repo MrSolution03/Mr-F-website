@@ -998,7 +998,19 @@ form{
     width: 60px;
     /* Adjusted width for smaller screens */
   }
+button{
+  padding: 10px 20px !important;
+}
 
+.about-section {
+  padding: 4rem 0.2rem !important;
+}
+
+.modal-content, .modal, .basketModal{
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
   .search-container i {
     padding: 5px 10px;
   }
