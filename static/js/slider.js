@@ -1,21 +1,25 @@
-$(document).ready(function () {
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const totalSlides = slides.length;
+document.addEventListener('DOMContentLoaded', function() {
+    const sliderContainer = document.querySelector('.slider-container');
+    const sliderItems = document.querySelectorAll('.slider-item');
+    let currentIndex = 0;
+    const slideInterval = 3000; // 3 seconds
 
-    function updateSlider() {
-        const newTransformValue = `translateX(-${currentSlide * 100}%)`;
-        document.querySelector('.slides').style.transform = newTransformValue;
+    function showSlide(index) {
+        sliderItems.forEach((item, i) => {
+            item.classList.toggle('active', i === index);
+        });
+        const offset = -index * 100;
+        sliderContainer.style.transform = `translateX(${offset}%)`;
     }
 
     function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateSlider();
+        currentIndex = (currentIndex + 1) % sliderItems.length;
+        showSlide(currentIndex);
     }
 
-    // Set an interval to automatically transition the slides every 3 seconds
-    setInterval(nextSlide, 3000);
+    // Initialize the first slide
+    showSlide(currentIndex);
 
-    // Initialize the slider
-    updateSlider();
+    // Set interval for automatic sliding
+    setInterval(nextSlide, slideInterval);
 });
